@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <title>Chim Gifu</title>
+</head>
+<body>
+    <center>
+        <h1>Sửa các thông số chim</h1>
+        <h3> Chim Sâu Bắt Bướm </h3>
+        <hr/>
+        <form method="POST" action="/Update/{{ChimModel.id}}">
+            {% csrf_token %}
+        
+        <table border="1">
+            <tr>
+                <td>Id Chim</td>
+                <td><input type="text" name="id" value ="{{ChimModel.id}}" readonly></td>
+            </tr>
+            <tr>
+                <td>Chim của ai</td>
+                <td><input type="text" name="chimcuaai" value ="{{ChimModel.chimcuaai}}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" value ="{{ChimModel.email}}"></td>
+            </tr>
+            <tr>
+                <td>Độ cong</td>
+                <td><input type="text" name="docong" value ="{{ChimModel.docong}}"></td>
+            </tr>
+            <tr>
+                <td>Độ dài</td>
+                <td><input type="text" name="dodai" value ="{{ChimModel.dodai}}"></td>
+            </tr>
+            <tr>
+                <td>Size chim</td>
+                <td><input type="text" name="sizechim" value ="{{ChimModel.sizechim}}"></td>
+            </tr>
+        </table>
+        <input type="submit" name="Insert">
+            <br/>
+                {% if messages %}
+                {% for mess in messages %}
+                <b style="color: blue;">{{mess}}</b>
+                {% endfor %}
+                {% endif %}
+            <br/> 
+
+        <a href="{% url 'showchim' %}">Về tổ</a>
+    </form>
+    </center>
+</body>
+</html>

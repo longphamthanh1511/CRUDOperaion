@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>Chim Gifu</title>
+</head>
+<body>
+    <center>
+        <h1>Các loại chim cò ở Gifu</h1>
+        <h3> Khoai to không lo chết đói </h3>
+        <hr/>
+        <a href="{% url 'themchim' %}">Bắt chim vào tổ</a> 
+        <table border="1">
+            <tr>
+                <th>ID chim</th>
+                <th>Chủ của chim</th>
+                <th>Email</th>
+                <th>Độ Cong</th>
+                <th>Độ Dài</th>
+                <th>Size chim</th>
+            </tr>
+            {% for result in data%}
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.chimcuaai}}</td>
+                <td>{{result.email}}</td>
+                <td>{{result.docong}}</td>
+                <td>{{result.dodai}}</td>
+                <td>{{result.sizechim}}</td>
+                <td><a href="Edit/{{result.id}}">Chữa chim</a></td>
+                <td><a href="Delete/{{result.id}}" onclick="return confirm('Bạn có muốn trả tự do cho chim')">Thả chim</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
